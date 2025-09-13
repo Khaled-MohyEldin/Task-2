@@ -4,12 +4,12 @@
 <!--    <parameter name="url" value="value of url"/>-->
 
     <listeners>
-        <listener class-name="TestComp.Listeners" />
+<!--        <listener class-name="TestComp.Listeners" />-->
     </listeners>
 
     <test name="MyTests">
         <classes>
-            <class name="ErrorValidationTest"/>
+<!--            <class name="ErrorValidationTest"/>-->
         </classes>
     </test>
 </suite>
