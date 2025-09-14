@@ -9,42 +9,50 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 public class BaseTest extends Utilities{
     public AndroidDriver driver;
     public AppiumDriverLocalService service;
 
     @BeforeMethod
-    public void initialization() throws MalformedURLException {
-        /* if you want to start appium server automatically uncomment this block
+    public void initialization() throws IOException {
+        //Getting config values from .properties files
+        Properties prop = new Properties();
+        FileInputStream config = new FileInputStream(System.getProperty("user.dir") +
+                "\\src\\test\\resources\\GlobalData.properties");
+        prop.load(config);
+        String ipAddress = prop.getProperty("ipAddress");
+        String deviceName = prop.getProperty("AndroidDeviceName");
+        String port  = prop.getProperty("port");
+
         //code to start the server
         if (service == null || !service.isRunning()) {
             service = new AppiumServiceBuilder()
                     .withAppiumJS(new File("C:/Users/Admin/AppData/Roaming/npm/node_modules/appium/build/lib/main.js"))
-                    .withIPAddress("127.0.0.1").usingPort(4723).build();
+                    .withIPAddress(ipAddress).usingPort(Integer.parseInt(port)).build();
             service.start();
 
             System.out.println("✅ Appium server started on port 4723");
-        } else {
-            System.out.println("⚠️ Appium server is already running");
-        }
-         */
+        } else { System.out.println("⚠️ Appium server is already running");}
+
 
         // create object from AndroidDriver , IODriver
         UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("Khaled2");
+        options.setDeviceName(deviceName);
         options.setApp(System.getProperty("user.dir") + "\\Store.apk");
         options.setOrientation(ScreenOrientation.valueOf("PORTRAIT"));
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+        driver = new AndroidDriver(service.getUrl(), options);
+//        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
 
     }
 
     @AfterMethod
     public void tearDown(){
         driver.quit();
-//        service.stop();
+        service.stop();
     }
 
 }

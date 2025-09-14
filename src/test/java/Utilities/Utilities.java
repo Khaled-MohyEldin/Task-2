@@ -128,7 +128,7 @@ public class Utilities {
     }
 
     public List<TestData> readJson () throws IOException {
-        File jsonFile = new File(System.getProperty("user.dir") + "\\data.json");
+        File jsonFile = new File(System.getProperty("user.dir") + "\\src\\test\\resources\\data.json");
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(jsonFile, new TypeReference< List<TestData> >() {});
     }

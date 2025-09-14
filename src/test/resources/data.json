@@ -1,5 +1,14 @@
-{
-  "name": "Ryan",
-  "gender": "Male"
-}
+[
+  {
+    "name" : "Khaled",
+    "country": "Austria",
+    "products": ["Nike Blazer Mid '77" , "PG 3"]
+  },
+  {
+    "name" : "Ahmed",
+    "country": "Algeria",
+    "products": ["Nike SFB Jungle" , "Air Jordan 4 Retro"]
+  }
+]
+
 
