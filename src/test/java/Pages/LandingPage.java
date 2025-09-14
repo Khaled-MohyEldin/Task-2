@@ -1,11 +1,9 @@
 package Pages;
+
 import Utilities.BaseTest;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.Map;
 
 public class LandingPage extends BaseTest{
@@ -15,7 +13,7 @@ public class LandingPage extends BaseTest{
         this.driver = driver;
     }
 
-    private final By Loading = By.id("android:id/text1");
+    private final By loading = By.id("android:id/text1");
     private final By countryDrop = By.id("android:id/text1");
 //    private By country1 = By.xpath("//android.widget.TextView[@text=\"Azerbaijan\"]");
     private final By nameField = By.id("com.androidsample.generalstore:id/nameField");
@@ -25,8 +23,7 @@ public class LandingPage extends BaseTest{
 
     //Wait to Load
     public void waitToLoad(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(Loading));
+        waitToAppear(driver, loading);
     }
 
     // Click the dropDown and select country
@@ -40,7 +37,9 @@ public class LandingPage extends BaseTest{
 
     //send keys to nameField
     public LandingPage enterName(String keys){
+        driver.findElement(nameField).clear();
         driver.findElement(nameField).sendKeys(keys);
+        driver.hideKeyboard();
         return this;
     }
 

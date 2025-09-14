@@ -4,11 +4,8 @@ import Utilities.BaseTest;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.math.BigDecimal;
-import java.time.Duration;
 import java.util.List;
 
 public class CartPage extends BaseTest {
@@ -29,8 +26,7 @@ public class CartPage extends BaseTest {
     private By proceedBtn = By.id("com.androidsample.generalstore:id/btnProceed");
 
     public void waitToLoad(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(loading));
+        waitToAppear(driver, loading);
     }
 
     public List<String> checkAll(List<String> productsToFind){

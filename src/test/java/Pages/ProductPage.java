@@ -5,11 +5,8 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.math.BigDecimal;
-import java.time.Duration;
 import java.util.List;
 
 public class ProductPage extends BaseTest {
@@ -31,8 +28,7 @@ public class ProductPage extends BaseTest {
 
     //Interactions
     public void waitToLoad(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(5000));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(loading));
+        waitToAppear(driver, loading);
     }
 
     public CartPage gotoCart(){
@@ -47,7 +43,6 @@ public class ProductPage extends BaseTest {
 
         BigDecimal sum = BigDecimal.ZERO;
         boolean endOfList = false;
-//        Set<String> seenProducts = new HashSet<>();
 
         WebElement parent = driver.findElement(parentLoc);
 
@@ -65,7 +60,7 @@ public class ProductPage extends BaseTest {
                         // Click the add to cart button
                         product.findElement(addBtn).click();
                         // Remove the product from the list so we don't look for it again
-                        productsToFind.remove(productName);
+                        boolean wasRemoved = productsToFind.remove(productName);
                         break;
                     }
 

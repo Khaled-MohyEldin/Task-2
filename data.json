@@ -1,6 +1,14 @@
-{
-    "email": "eve.holt@reqres.in",
-    "password": "1&twoThree"
-}
+[
+  {
+    "name" : "Khaled",
+    "country": "Austria",
+    "products": ["Nike Blazer Mid '77" , "PG 3"]
+  },
+  {
+    "name" : "Ahmed",
+    "country": "Algeria",
+    "products": ["Nike SFB Jungle" , "Air Jordan 4 Retro"]
+  }
+]
 
 
