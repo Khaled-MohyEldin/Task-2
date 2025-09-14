@@ -35,7 +35,7 @@ public class BaseTest extends Utilities{
         // create object from AndroidDriver , IODriver
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Khaled2");
-        options.setApp(System.getProperty("user.dir") + "\\General-Store.apk");
+        options.setApp(System.getProperty("user.dir") + "\\Store.apk");
         options.setOrientation(ScreenOrientation.valueOf("PORTRAIT"));
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
 
