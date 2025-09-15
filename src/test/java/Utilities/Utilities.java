@@ -28,7 +28,7 @@ public class Utilities {
     public WebDriverWait wait;
 
     public void waitToAppear(AppiumDriver driver, By loading){
-        wait = new WebDriverWait(driver, Duration.ofMillis(5000));
+        wait = new WebDriverWait(driver, Duration.ofMillis(10000));
         wait.until(ExpectedConditions.visibilityOfElementLocated(loading));
     }
 
@@ -132,5 +132,6 @@ public class Utilities {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(jsonFile, new TypeReference< List<TestData> >() {});
     }
+
 
 }

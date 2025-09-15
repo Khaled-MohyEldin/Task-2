@@ -19,6 +19,7 @@ public class EtoE_PosTest extends BaseTest {
 
     @Test (dataProvider = "data2")
     public void EndtoEnd_Positive(TestData data){
+        //Extracting Data
         String name = data.getName();
         String country = data.getCountry();
         List<String> productsToFind = data.getProducts();
@@ -52,6 +53,12 @@ public class EtoE_PosTest extends BaseTest {
     }
 
 
+    @DataProvider //reading from JsonFile Directly to POJO => TestData
+    public Object[][] data2() throws IOException {
+      List<TestData> data = readJson();
+      return new Object[][] { {data.get(0)} , {data.get(1)} };
+    }
+
     @DataProvider
     public Object[][] data1(){
         return new Object[][] {
@@ -60,10 +67,5 @@ public class EtoE_PosTest extends BaseTest {
         };
     }
 
-    @DataProvider //reading from JsonFile Directly to POJO => TestData
-    public Object[][] data2() throws IOException {
-      List<TestData> data = readJson();
-      return new Object[][] { {data.get(0)} , {data.get(1)} };
-    }
 
 }

@@ -5,7 +5,9 @@ import Utilities.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class NoName_NegTest extends BaseTest {
+
     @Test
     public void toastMSG_Negative(){
         LandingPage landingPage = new LandingPage(driver);
@@ -13,6 +15,8 @@ public class NoName_NegTest extends BaseTest {
 
         //Testing not entering name and trying to shop
         String toastMsg = landingPage.goShop().get("name").toString();
-        Assert.assertEquals(toastMsg,"Please enter your name");
+//        Assert.assertEquals(toastMsg,"Please enter your name");
+        //fail deliberately
+        Assert.assertEquals(toastMsg,"Please enter your");
     }
 }

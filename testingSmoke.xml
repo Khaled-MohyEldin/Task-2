@@ -2,14 +2,19 @@
 <suite name="MyTestSuite" verbose="1" >
 
 <!--    <parameter name="url" value="value of url"/>-->
+<!--    <groups>-->
+<!--        <run>-->
+<!--            <include name="" />-->
+<!--        </run>-->
+<!--    </groups>-->
 
     <listeners>
-<!--        <listener class-name="TestComp.Listeners" />-->
+        <listener class-name="Utilities.TestListener" />
     </listeners>
 
     <test name="MyTests">
         <classes>
-<!--            <class name="ErrorValidationTest"/>-->
+            <class name="Tests.NoName_NegTest"/>
         </classes>
     </test>
 </suite>
