@@ -19,7 +19,7 @@ public class BaseTest extends Utilities{
     protected AndroidDriver driver;
     public AppiumDriverLocalService service;
 
-    //@BeforeClass
+    @BeforeClass
     public void serverInitialization() throws FileNotFoundException {
 
         String configDriver = PropertyReader.get("driver");
@@ -51,12 +51,11 @@ public class BaseTest extends Utilities{
         UiAutomator2Options options = new UiAutomator2Options();
         options.setApp( System.getProperty("user.dir") + "\\Store.apk");
         options.setOrientation(ScreenOrientation.valueOf("PORTRAIT"));
+        options.setDeviceName( PropertyReader.get("AndroidDeviceName"));
+        driver = new AndroidDriver(service.getUrl(), options);
 
-//        options.setDeviceName( PropertyReader.get("AndroidDeviceName"));
-//        driver = new AndroidDriver(service.getUrl(), options);
-
-        options.setDeviceName("Khaled2");
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+//        options.setDeviceName("Khaled2");
+//        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         DriverFactory.setDriver(driver);
     }
 
@@ -66,7 +65,7 @@ public class BaseTest extends Utilities{
         driver.quit();
     }
 
-    //@AfterClass
+    @AfterClass
     public void stopServer(){ service.stop();}
 
 }
