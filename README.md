@@ -37,20 +37,21 @@ It supports Android devices and is designed for scalable, maintainable test exec
    git clone https://github.com/Khaled-MohyEldin/AppStore-Test-Automation.git
    
 2. Install dependencies:
-  ``bash
+    ```bash
    mvn clean install
 
-3. Configure GlobalData.properties in src/test/resources:
-
-    in properties file 
+4. Configure GlobalData.properties in src/test/resources:
+    in properties file adjust
     ipAddress=127.0.0.1
     port=4723
     driver=uiautomator2
 
-4. Run tests:
+5. Run tests:
+   ```bash
    mvn test -PRegression
    mvn test -PSmoke
    
-5. See Reults in Allure Reports
+7. See Reults in Allure Reports
+   ```bash
    allure serve allure-results
 
