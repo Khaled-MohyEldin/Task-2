@@ -17,18 +17,18 @@ public class ProductPage extends BaseTest {
     }
 
     //by Locators
-    private By loading = By.xpath("//android.widget.LinearLayout");
-    private By cartBtn = By.id("com.androidsample.generalstore:id/appbar_btn_cart");
-    private By firstProductLoc = AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.LinearLayout\").instance(5)");
-    private By parentLoc = By.id("com.androidsample.generalstore:id/rvProductList");
-    private By productsLoc = By.xpath("//android.widget.RelativeLayout");
-    private By productLoc = By.xpath("//android.widget.TextView");
-    private By priceLoc = By.xpath("//android.widget.TextView[@resource-id=\"com.androidsample.generalstore:id/productPrice\"]");
-    private By addBtn = By.xpath("//android.widget.TextView[@text=\"ADD TO CART\"]");
+    private final By loading = By.xpath("//android.widget.LinearLayout");
+    private final By cartBtn = By.id("com.androidsample.generalstore:id/appbar_btn_cart");
+    private final By firstProductLoc = AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.LinearLayout\").instance(5)");
+    private final By parentLoc = By.id("com.androidsample.generalstore:id/rvProductList");
+    private final By productsLoc = By.xpath("//android.widget.RelativeLayout");
+    private final By productLoc = By.xpath("//android.widget.TextView");
+    private final By priceLoc = By.xpath("//android.widget.TextView[@resource-id=\"com.androidsample.generalstore:id/productPrice\"]");
+    private final By addBtn = By.xpath("//android.widget.TextView[@text=\"ADD TO CART\"]");
 
     //Interactions
     public void waitToLoad(){
-        waitToAppear(driver, loading);
+        waitToAppear(loading);
     }
 
     public CartPage gotoCart(){
@@ -70,7 +70,7 @@ public class ProductPage extends BaseTest {
             }
             if (!productsToFind.isEmpty()){
                 // Perform swipe by exactly one product height
-                endOfList = scroll(driver, endOfList,productHeight);
+                endOfList = scroll(endOfList, productHeight);
             }
 
         }

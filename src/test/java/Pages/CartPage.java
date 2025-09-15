@@ -15,18 +15,18 @@ public class CartPage extends BaseTest {
         this.driver = driver;
     }
 
-    private By loading = By.id("com.androidsample.generalstore:id/rvCartProductList");
-    private By parentLoc = By.id("com.androidsample.generalstore:id/rvCartProductList");
-    private By productsLoc = By.xpath("//android.widget.RelativeLayout");
-    private By productNameLoc = By.id("com.androidsample.generalstore:id/productName");
-    private By priceLoc = By.id("com.androidsample.generalstore:id/totalAmountLbl");
-    private By termsBtm = By.id("com.androidsample.generalstore:id/termsButton");
-    private By closeTermsBtn = By.id("android:id/button1");
-    private By mailCheck = By.className("android.widget.CheckBox");
-    private By proceedBtn = By.id("com.androidsample.generalstore:id/btnProceed");
+    private final By loading = By.id("com.androidsample.generalstore:id/rvCartProductList");
+    private final By parentLoc = By.id("com.androidsample.generalstore:id/rvCartProductList");
+    private final By productsLoc = By.xpath("//android.widget.RelativeLayout");
+    private final By productNameLoc = By.id("com.androidsample.generalstore:id/productName");
+    private final By priceLoc = By.id("com.androidsample.generalstore:id/totalAmountLbl");
+    private final By termsBtm = By.id("com.androidsample.generalstore:id/termsButton");
+    private final By closeTermsBtn = By.id("android:id/button1");
+    private final By mailCheck = By.className("android.widget.CheckBox");
+    private final By proceedBtn = By.id("com.androidsample.generalstore:id/btnProceed");
 
     public void waitToLoad(){
-        waitToAppear(driver, loading);
+        waitToAppear(loading);
     }
 
     public List<String> checkAll(List<String> productsToFind){
@@ -49,7 +49,7 @@ public class CartPage extends BaseTest {
 
     public CartPage readTerms(){
         WebElement read = driver.findElement(termsBtm);
-        longPress(driver,read );
+        longPress(read );
         driver.findElement(closeTermsBtn).click();
         return this;
     }

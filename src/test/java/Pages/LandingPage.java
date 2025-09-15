@@ -23,14 +23,14 @@ public class LandingPage extends BaseTest{
 
     //Wait to Load
     public void waitToLoad(){
-        waitToAppear(driver, loading);
+        waitToAppear(loading);
     }
 
     // Click the dropDown and select country
     public LandingPage selectCountry(String country){
         By cntryLocator = By.xpath("//android.widget.TextView[@text=\""+country+"\"]");
         driver.findElement(countryDrop).click();
-        scrollToElement(driver,country);
+        scrollToElement(country);
         driver.findElement(cntryLocator).click();
         return this;
     }

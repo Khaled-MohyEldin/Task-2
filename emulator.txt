@@ -1,0 +1,60 @@
+C:\Users\Admin\AppData\Local\Android\Sdk\emulator\emulator.exe
+
+cd C:\Users\Admin\AppData\Local\Android\Sdk\emulator
+
+// commands 
+
+appium server --address 127.0.0.1 --port 4723 --use-drivers uiautomator2
+appium server --log-level info --log appium.log
+
+emulator.exe -avd Medium_Phone_API_36.0_2
+emulator.exe -avd Khaled2
+==========================================1
+{
+  "app": "C:\\Users\\Admin\\Desktop\\JavaProjects\\AppiumOne\\src\\test\\java\\resources\\ApiDemos-debug.apk",
+  "deviceName": "Medium Phone API 36.0",
+  "platformName": "android",
+  "automationName": "UiAutomator2"
+}
+===========================================2
+{
+  "app": "C:\\Users\\Admin\\Desktop\\JavaProjects\\AppiumOne\\General-Store.apk",
+  "deviceName": "Medium Phone API 36.0",
+  "platformName": "android",
+  "automationName": "UiAutomator2"
+}
+===========================================
+adb -s emulator-5554 shell dumpsys window | findstr mCurrentFocus
+
+adb -s emulator-5554 shell dumpsys package com.android.chrome | findstr versionName
+
+adb -s emulator-5554 install -r Chrome.apk
+adb shell settings get global webview_provider
+
+
+mCurrentFocus=Window{888e02e u0 io.appium.android.apis/io.appium.android.apis.app.AlertDialogSamples}
+
+packageName = io.appium.android.apis
+ActivityName = io.appium.android.apis.app.AlertDialogSamples
+
+PN = org.simple.clinic.staging
+AN = org.simple.clinic.main.TheActivity
+
+=========================================
+{
+  "app": "C:\\Users\\Admin\\Desktop\\JavaProjects\\AppiumTwo\\Clinique.apk",
+  "deviceName": "Khaled2",
+  "platformName": "android",
+  "automationName": "UiAutomator2"
+}
+
+=============
+com.androidsample.generalstore:id/toolbar_title
+
+
+
+
+
+
+
+

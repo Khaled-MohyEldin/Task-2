@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
@@ -26,20 +27,24 @@ import java.util.Set;
 
 public class Utilities {
     public WebDriverWait wait;
+    private static AndroidDriver driver;
 
-    public void waitToAppear(AppiumDriver driver, By loading){
+    public void waitToAppear(By loading){
+        driver = DriverFactory.getDriver();
         wait = new WebDriverWait(driver, Duration.ofMillis(10000));
         wait.until(ExpectedConditions.visibilityOfElementLocated(loading));
     }
 
-    public void scrollToElement(AppiumDriver driver, String targetText){
+    public void scrollToElement(String targetText){
+        driver = DriverFactory.getDriver();
         driver.findElement(AppiumBy.androidUIAutomator(
                 "new UiScrollable(new UiSelector().scrollable(true))" +
                         ".scrollIntoView(new UiSelector().text(\""+targetText+"\"));"));
 
     }
 
-    public void longPress(AppiumDriver driver, WebElement element){
+    public void longPress(WebElement element){
+        driver = DriverFactory.getDriver();
         driver.executeScript("mobile: longClickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement)element).getId()));
     }
@@ -51,7 +56,8 @@ public class Utilities {
                 .setScale(2, RoundingMode.HALF_UP);
     }
 
-    public boolean scroll(AppiumDriver driver, boolean endOfList, int productHeight){
+    public boolean scroll(boolean endOfList, int productHeight){
+        driver = DriverFactory.getDriver();
         Dimension screen = driver.manage().window().getSize();
         int screenHeight = screen.getHeight();
         int screenWidth = screen.getWidth();
@@ -82,7 +88,8 @@ public class Utilities {
         return endOfList;
     }
 
-    public BigDecimal scrollProductsAndAddToCart(AppiumDriver driver, List<String> productsToFind) {
+    public BigDecimal scrollProductsAndAddToCart(List<String> productsToFind) {
+        driver = DriverFactory.getDriver();
         // Locate first product to calculate height
         WebElement firstProduct = driver.findElement(AppiumBy.androidUIAutomator(
                 "new UiSelector().className(\"android.widget.LinearLayout\").instance(5)"));
@@ -120,7 +127,7 @@ public class Utilities {
 
             if (!productsToFind.isEmpty()){
                 // Perform swipe by exactly one product height
-                endOfList = scroll(driver, endOfList, productHeight);
+                endOfList = scroll(endOfList, productHeight);
             }
 
         }

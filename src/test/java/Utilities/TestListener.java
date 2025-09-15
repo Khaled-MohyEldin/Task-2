@@ -19,8 +19,8 @@ public class TestListener implements ITestListener {
 
     @Override @SneakyThrows
     public void onTestFailure(ITestResult result) {
-        // 🔹 use singleton instead of passing driver
-        AndroidDriver  driver = DriverManager.getDriver();
+        //use Thread-Safe Factory Pattern instead of passing driver
+        AndroidDriver driver = DriverFactory.getDriver();
 
         String testName = result.getName(); // Get the test method name
         System.out.println("Test Failed: " + testName);

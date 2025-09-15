@@ -52,7 +52,6 @@ public class EtoE_PosTest extends BaseTest {
                 .proceed();
     }
 
-
     @DataProvider //reading from JsonFile Directly to POJO => TestData
     public Object[][] data2() throws IOException {
       List<TestData> data = readJson();
