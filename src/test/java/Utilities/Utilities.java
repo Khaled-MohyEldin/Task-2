@@ -8,6 +8,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
@@ -138,6 +139,14 @@ public class Utilities {
         File jsonFile = new File(System.getProperty("user.dir") + "\\src\\test\\resources\\data.json");
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(jsonFile, new TypeReference< List<TestData> >() {});
+    }
+
+    public void waitNClick(By locator){
+        WebDriver driver = DriverFactory.getDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        driver.findElement(locator).click();
     }
 
 

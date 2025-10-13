@@ -13,7 +13,7 @@
   <url>http://www.example.com</url>
 
   <properties>
-      <javaversion>24</javaversion>
+      <javaversion>25</javaversion>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <maven.compiler.source>${javaversion}</maven.compiler.source>
       <maven.compiler.target>${javaversion}</maven.compiler.target>

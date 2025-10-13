@@ -51,6 +51,11 @@ AN = org.simple.clinic.main.TheActivity
 =============
 com.androidsample.generalstore:id/toolbar_title
 
+:token="&quot;d42ff9593194ef98e1fe4f26a.uCQrPLGkoYc7KNjJpBQ01iaSpm3tjw0BrqzbFgH4FrI.gU1heNfCxeZqWIC_wyJOkGXl9lmMxVws3ZixYligR_n8Z11148Dp8X5FmQ&quot;"
+
+d42ff9593194ef98e1fe4f26a.uCQrPLGkoYc7KNjJpBQ01iaSpm3tjw0BrqzbFgH4FrI.gU1heNfCxeZqWIC_wyJOkGXl9lmMxVws3ZixYligR_n8Z11148Dp8X5FmQ
+
+:token="&quot;(.+?)&quot;"
 
 
 

@@ -31,9 +31,9 @@ public class ProductPage extends BaseTest {
         waitToAppear(loading);
     }
 
-    public CartPage gotoCart(){
+    public SettingPage gotoCart(){
         driver.findElement(cartBtn).click();
-        return new CartPage(driver);
+        return new SettingPage(driver);
     }
 
     public BigDecimal addToCart(List<String> productsToFind){

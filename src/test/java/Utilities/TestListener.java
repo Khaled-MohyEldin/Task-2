@@ -19,7 +19,7 @@ public class TestListener implements ITestListener {
 
     @Override @SneakyThrows
     public void onTestFailure(ITestResult result) {
-        //use Thread-Safe Factory Pattern instead of passing driver
+        //use Thread-Safe driver Factory Pattern instead of passing driver
         AndroidDriver driver = DriverFactory.getDriver();
 
         String testName = result.getName(); // Get the test method name

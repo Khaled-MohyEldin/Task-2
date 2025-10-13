@@ -2,6 +2,7 @@
 <suite name="MyTestSuite" verbose="1" >
 
 <!--    <parameter name="url" value="value of url"/>-->
+
 <!--    <groups>-->
 <!--        <run>-->
 <!--            <include name="" />-->
