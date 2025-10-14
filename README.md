@@ -1,57 +1,68 @@
-# AppStore Test Automation 🚀
+# Weather App UI Automation (Task 2)
 
-This project automates testing for the AppStore mobile application using **Appium**, **Java**, and **TestNG**.
-It supports Android devices and is designed for scalable, maintainable test execution.
+**Objective:** Validate the complete user experience of the Weather Application, from the initial setup flow through setting configuration and verifying applied data changes on the home page.
 
-## 📦 Tech Stack
+---
 
-- **Java**
-- **Appium 2.x**
-- **TestNG**
-- **Maven**
-- **Android Emulator / Real Device**
+## Scenario Description
 
-## 🧪 Features
+The test verifies the end-to-end functionality:
+1.  Completing the application's **initial setup/onboarding flow**.
+2.  Navigating to the **Settings** screen.
+3.  **Changing specific settings** (e.g., temperature unit, time format).
+4.  Returning to the **Home Page** to validate that the new settings are correctly applied and that the displayed weather data is consistent with the configuration.
 
-- Start and stop Appium server programmatically
-- Dynamic driver configuration via `.properties` file
-- Page Object Model (POM) structure
-- Reusable utility classes (e.g., `PropertyReader`)
-- Clean logging and log filtering support
-- Environment-ready for CI/CD integration
+---
 
-## 🚀 Getting Started
+## Implementation Highlights
 
-### Prerequisites
+* **Page Object Model (POM):** Used for test structure, ensuring high maintainability and code readability.
+* **Fluent POM:** Implemented a fluent interface for method chaining, creating highly readable, sequential, and descriptive test steps.
+* **Driver Management:** Utilized a **DriverFactory/Singleton Pattern** to ensure only a single, thread-safe Appium driver instance is used across the test suite.
+* **Externalized Configuration:** Utilized a **Properties File** to manage dynamic configuration parameters (Appium connection, test data) for easy maintenance.
+* **Dynamic Pop-up Handling:** Successfully managed a challenging **semi-random pop-up message** by capturing its locator and implementing explicit waits and robust exception handling to prevent test disruption and ensure scenario completion.
 
-- Java 11+
-- Node.js & Appium installed globally (`npm install -g appium`)
-- Appium UiAutomator driver Installed 
-- Android SDK & emulator setup
-- Maven installed
+---
 
-### Setup
+## Prerequisites
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/Khaled-MohyEldin/AppStore-Test-Automation.git
-   
-2. Install dependencies:
+1.  **Android Environment:** A running Android Emulator or Physical Device must be connected and ready for testing.
+    * *Verification:* Ensure output shows `device` (not `offline` or `unauthorized`).
+        ```bash
+        adb devices
+        ```
+2.  **Appium Server:** Appium is installed and running locally. Connection details are defined in `GlobalData.properties` and can be changed there.
+
+---
+
+## Setup and Execution
+
+### Project Setup
+1.  **Install dependencies and build the project:**
+
     ```bash
-   mvn clean install
+    mvn clean install
+    ```
 
-4. Configure GlobalData.properties in src/test/resources:
-    in properties file adjust
-    ipAddress=127.0.0.1
-    port=4723
-    driver=uiautomator2
+### Execution
+2.  **Run the tests:** (Uses the default TestNG XML configuration)
 
-5. Run tests:
-   ```bash
-   mvn test -PRegression
-   mvn test -PSmoke
-   
-7. See Reults in Allure Reports
-   ```bash
-   allure serve allure-results
+    ```bash
+    mvn test
+    ```
 
+### Reporting
+3.  **View Allure Reports:**
+
+    ```bash
+    allure serve allure-results
+    ```
+
+---
+
+## Project Artifacts
+
+* **Project Structure**  
+    ![alt text](Project-Structure.png)  
+* **Allure Report**  
+    ![alt text](Allure-Report.png)

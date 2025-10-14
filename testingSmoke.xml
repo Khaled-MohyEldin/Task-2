@@ -14,7 +14,7 @@
 
     <test name="MyTests">
         <classes>
-            <class name="Tests.NoName_NegTest"/>
+            <class name="Tests.TestScenario"/>
         </classes>
     </test>
 </suite>

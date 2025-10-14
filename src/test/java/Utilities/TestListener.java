@@ -17,6 +17,14 @@ import java.util.Date;
 
 public class TestListener implements ITestListener {
 
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        String testName = result.getName();
+        System.out.println("Test Succeeded: " + testName);
+        // Add a step to Allure for documentation of success
+        Allure.step("✅ Test passed successfully: " + testName);
+    }
+
     @Override @SneakyThrows
     public void onTestFailure(ITestResult result) {
         //use Thread-Safe driver Factory Pattern instead of passing driver
@@ -33,7 +41,7 @@ public class TestListener implements ITestListener {
             try { // Saving a screenshot to screenshots Folder
                 File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
                 FileUtils.copyFile(screenshot, new File("screenshots/" + fileName));
-                System.out.println("📸 Screenshot saved: screenshots/" + fileName);
+                System.out.println("Screenshot saved: screenshots/" + fileName);
 
                 // Attach screenshot to Allure
                 byte[] screenshotBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
@@ -47,6 +55,5 @@ public class TestListener implements ITestListener {
             System.out.println("Driver is null, screenshot not captured.");
         }
     }
-
 
 }
