@@ -9,7 +9,7 @@
 The test verifies the end-to-end functionality:
 1.  Completing the application's **initial setup/onboarding flow**.
 2.  Navigating to the **Settings** screen.
-3.  **Changing specific settings** (e.g., temperature unit, time format).
+3.  **Changing specific settings** (temperature unit, time format).
 4.  Returning to the **Home Page** to validate that the new settings are correctly applied and that the displayed weather data is consistent with the configuration.
 
 ---
