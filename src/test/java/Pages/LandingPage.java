@@ -1,6 +1,6 @@
 package Pages;
 
-import Utilities.BaseTest;
+import Utilities.Utilities;
 import Utilities.DriverFactory;
 import Utilities.Utilities;
 import io.appium.java_client.AppiumBy;
@@ -15,7 +15,7 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.Map;
 
-public class LandingPage extends BaseTest {
+public class LandingPage{
     //Constructor and Driver
     private AndroidDriver driver;
 
@@ -24,7 +24,7 @@ public class LandingPage extends BaseTest {
     }
 
     WebDriverWait wait;
-    Utilities util;
+    Utilities util = new Utilities();
 
     private final By LOADING_MESSAGE_LOCATOR = By.id("android:id/message");
     private final By wethTime = By.id("com.info.weather.forecast:id/tv_hour_item");
@@ -42,10 +42,10 @@ public class LandingPage extends BaseTest {
     @Step("finish setup and load home page")
     public LandingPage finishSetupNavigate(){
         driver.findElement(doneBtn).click();
-        waitNClick(gotItBtn);
+        util.waitNClick(gotItBtn);
         //wait for popup msg and click on permission
         waitPopUpMsg();
-        waitNClick( permissionBtn);
+        util.waitNClick( permissionBtn);
         return this;
     }
 
@@ -58,7 +58,7 @@ public class LandingPage extends BaseTest {
 
     @Step("Click NavBar and go to settings")
     public void goToSettings(){
-        waitNClick( navBar);
+        util.waitNClick( navBar);
         driver.findElement( unitSettings).click();
     }
 

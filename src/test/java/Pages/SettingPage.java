@@ -14,12 +14,12 @@ import java.time.Duration;
 
 public class SettingPage {
 
+    Utilities util = new Utilities();
     private AndroidDriver driver;
     public SettingPage(AndroidDriver driver) {
         this.driver = driver;
     }
 
-    Utilities util;
     private final By tempSelect = By.id("com.info.weather.forecast:id/iv_temp_dropdown");
     private final By tempCelUnit = AppiumBy.androidUIAutomator("new UiSelector().text(\"C\")");
     private final By timeSelect = By.id("com.info.weather.forecast:id/tv_timeformat_setting");
@@ -28,7 +28,6 @@ public class SettingPage {
 
     @Step("Click on Temperature and choose celsius Formate")
     public SettingPage chooseCelesiusTemp(){
-        util = new Utilities();
         util.waitNClick(tempSelect);
         util.waitNClick(tempCelUnit);
         return this;
@@ -36,7 +35,6 @@ public class SettingPage {
 
     @Step("Click on Time and choose 12 Hour Formate")
     public SettingPage choose12HourTime(){
-        util = new Utilities();
         util.waitNClick(timeSelect);
         util.waitNClick(time12Unit);
         return this;
